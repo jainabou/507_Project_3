@@ -73,7 +73,7 @@ def create_countries():
         cur.execute(statement, insertion)
     conn.commit()
     conn.close()
-    print(none_counter)
+    #print(none_counter)
     return
 
 
@@ -471,12 +471,15 @@ def countries_query(kwargs):
     if 'ratings' in input_list:
         statement +=avg_rating_statement+join_statement
         rating_counter +=1
-    if 'cocoa' in input_list:
+    elif 'cocoa' in input_list:
         statement +=avg_cocoa_staement+join_statement
         cocoa_counter+=1
-    if 'bars_sold' in input_list:
+    elif 'bars_sold' in input_list:
         statement+=bars_sold_statement+join_statement
         bars_counter+=1
+    else:
+        statement +=avg_rating_statement+join_statement
+        rating_counter +=1
 
     if 'sellers' in input_list:
         statement+=sellers_statement
@@ -537,7 +540,7 @@ def countries_query(kwargs):
         else:
             statement+=avg_rating_statement+join_statement+group_statement+order_rating_statement+'DESC LIMIT 10 '
 
-    #print(statement)
+    print(statement)
     # Connect to big10 database
     conn = sqlite3.connect(DBNAME)
     cur = conn.cursor()
