@@ -762,6 +762,7 @@ def interactive_prompt():
             #print(response)
             process_command(response)
         elif response_list[0]=='exit':
+            print('Bye!')
             exit()
         else:
             print('You have entered an invalid entry. Please type '+"'help'"+'to get instructions.')
