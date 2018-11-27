@@ -54,8 +54,8 @@ def create_countries():
     #populate countries table
     json_data=open(COUNTRIESJSON, encoding='utf8').read()
     data=json.loads(json_data)
-    print(len(data))
-    none_counter=0
+    #print(len(data))
+    #none_counter=0
     for i in data:
         EnglishName=i['name']
         Alpha2=i['alpha2Code']
@@ -134,8 +134,8 @@ def populate_bars():
         cur.execute(statement)
 
         i=cur.fetchone()
-        if bar[8] == "Unknown":
-            print(i)
+        #if bar[8] == "Unknown":
+        #    print(i)
         if i is not None:
             BroadBeanOriginId=i[0]
 
